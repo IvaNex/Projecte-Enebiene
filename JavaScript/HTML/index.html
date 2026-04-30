@@ -4,98 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enebiene</title>
+    <link rel="stylesheet" href="css-index.css">
 </head>
 <body>
     <header>
         <div class="header-main">
-            <div class="logo"></div>
-            <div class="buscador"></div>
-            <div class="deseados"></div>
-            <div class="compra"></div>
-            <div class="menu-usuario"></div>
+            <div class="logo">
+                <a href="index.html">
+                <img src="imagenes/logo%202.png" alt="Logotipo de Enebiene" class="logo-cabecera">
+
+            </a></div>
+            <div class="buscador">
+                <!--funcion Get para que el buscador envia el inputa la url de productes-->
+                <form action="productes.html" method="GET">
+                    <input type="text" name="q" placeholder="Busca tu juego en Enebiene...">
+                    <button type="submit">🔍</button>
+                </form>
+            </div>
+            <div class="deseados">
+                <a href="#">
+                    <span>❤️</span>
+                    <span class="texto-icono">Favoritos</span>
+                </a>
+            </div>
+            <div class="compra">
+                <a href="#">
+                    <span>🛒</span>
+                    <span class="texto-icono">Carrito</span>
+                </a>
+            </div>
+            <div class="menu-usuario">
+                <a href="#">
+                    <span>👤</span>
+                    <span class="texto-icono">Mi Perfil</span>
+                </a>
+            </div>
         </div>
         <nav class="menu">
-            <ul>
-                <!--4 menus obligatoris-->
+            <!-- menu despleagle-->
+            <div class="categorias-desplegables">
+                <button class="btn-categorias">
+                    <span class="icono-hamburguesa">☰</span>
+                    <span>Categorías</span>
+                </button>
+               <!-- contenido del despleagle-->
+                <ul class="contenedor-desplegable">
+                    <li><a href="productes.html?plataforma=pc">PC</a></li>
+                    <li><a href="productes.html?plataforma=ps5">PlayStation 5</a></li>
+                    <li><a href="productes.html?plataforma=xbox">Xbox Series X/S</a></li>
+                    <li><a href="productes.html?plataforma=nintendo">Nintendo Switch</a></li>
+                    <li><a href="productes.html?plataforma=nintendo2">Nintendo Switch 2</a></li>
+                </ul>
+                </div>
+            <ul class="lista-enlaces">
+                <!-- REQUISITOS OBLIGATORIOS (Los camuflamos en la barra) -->
                 <li><a href="index.html" class="activo">Inici</a></li>
                 <li><a href="productes.html">Productes</a></li>
                 <li><a href="creadors.html">Creadors</a></li>
-                <li><a href="sobre-nosaltres.html">Sobre nosaltres</a></li>
-            </ul>
-            <ul>
-                <li><a href="productes.html?plataforma=pc">PC</a></li>
-                <li><a href="productes.html?plataforma=ps5">PlayStation 5</a></li>
-                <li><a href="productes.html?plataforma=xbox">Xbox Series X/S</a></li>
-                <li><a href="productes.html?plataforma=nintendo">Nintendo Switch</a></li>
-                <li><a href="productes.html?plataforma=nintendo2">Nintendo Switch 2</a></li>
+                <li><a href="sobre-nosaltres.html">Nosaltres</a></li>
+                <li><a href="productes.html?ofertas=true">Ofertas Top</a></li>
+                <li><a href="productes.html?preventa=true">Próximos lanzamientos</a></li>
             </ul>
         </nav>
     </header>
     <main>
 
+            <!-- SECTOR 1: Tu Hero mezclado -->
+            <section class="bienvenida">
+                <h1>Tu tienda Enebiene trae lo último en videojuegos</h1>
+                <p>Tus juegos favoritos a un precio agradable para los jugones.</p>
+            </section>
 
-        <!-- REQUISITO 7.2: Hero / Portada con nombre y eslogan -->
-        <section class="bienvenida">
-            <h1>ENEBIENE: Tu tienda de juegos</h1>
-            <p>Tus juegos favoritos al mejor precio y al instante.</p>
-        </section>
+            <!-- SECTOR 2: Descripción obligatoria de la empresa -->
+            <section class="descripcion-empresa">
+                <h2>¿Quiénes somos?</h2>
+                <p>En Enebiene somos apasionados de la tecnología. Ofrecemos las mejores claves de videojuegos con total seguridad y rapidez, garantizando que nunca te quedes sin jugar.</p>
+            </section>
 
-        <!-- REQUISITO 7.2: Descripción de la empresa (Párrafo real) -->
-        <section class="descripcion-empresa">
-            <h2>¿Quiénes somos?</h2>
-            <p>En Enebiene somos apasionados de la tecnología y el entretenimiento digital. Ofrecemos las mejores claves de videojuegos del mercado con total seguridad y rapidez, garantizando que nunca te quedes sin jugar.</p>
-        </section>
+            <!-- SECTOR 3: Las 3 ventajas (fusionadas) -->
 
-        <!-- REQUISITO 7.2: 3 Ventajas presentadas como tarjetas -->
-        <section class="contenedor-ventajas">
+            <section class="contenedor-ventajas">
+                <article class="tarjeta">
+                    <img src="imagenes/ahorro.png" alt="Precio bajo">
+                    <h3>Precios Imbatibles</h3>
+                    <p>Ahorra dinero en cada compra con nuestras ofertas exclusivas.</p>
+                </article>
 
-            <!-- Cada tarjeta DEBE tener: Imagen/icono, título y descripción[cite: 1] -->
-            <article class="tarjeta">
-                <img src="img/icono-precio.png" alt="Precio bajo">
-                <h3>Precios Imbatibles</h3>
-                <p>Ahorra dinero con nuestras ofertas exclusivas en todo el catálogo.</p>
-            </article>
+                <article class="tarjeta">
+                    <img src="imagenes/envio.png" alt="Rapidez">
+                    <h3>Envío Instantáneo</h3>
+                    <p>Recibe tu código por correo en menos de 1 minuto.</p>
+                </article>
 
-            <article class="tarjeta">
-                <img src="img/icono-rayo.png" alt="Rapidez">
-                <h3>Envío Inmediato</h3>
-                <p>Recibe tu código de descarga en tu correo electrónico en segundos.</p>
-            </article>
+                <article class="tarjeta">
+                    <img src="imagenes/seguridad.png" alt="Seguridad">
+                    <h3>Compra 100% Segura</h3>
+                    <p>Tus datos y transacciones están protegidos con la mejor tecnología.</p>
+                </article>
+            </section>
 
-            <article class="tarjeta">
-                <img src="img/icono-seguro.png" alt="Seguridad">
-                <h3>Compra Segura</h3>
-                <p>Tus transacciones están protegidas con los mayores estándares de seguridad.</p>
-            </article>
+            <!-- Hueco para juegos top -->
+            <section id="juegos-destacados">
+                <h2>Top 3 Juegos mejor puntuados</h2>
+                <div id="contenedor-destacados">
+                    <!-- Esto lo rellenaremos con JavaScript más adelante[cite: 1] -->
+                </div>
+            </section>
 
-        </section>
-
-                viejo
-        <section class="bienvenida">
-            <h1>Tu tienda Enebiene trae lo ultido en videojuegos</h1>
-            <p>Tus juegos favoritos al mejor precio y al instante.</p>
-        </section>
-        <section class="contenedor-ventajas">
-
-            <article class="tarjeta">
-                <img src="img/icono-precio.png" alt="Icono Precio">
-                <h3>Precios Bajos</h3>
-                <p>Ahorra dinero en cada compra que realices.</p>
-            </article>
-
-            <article class="tarjeta">
-                <img src="img/icono-rayo.png" alt="Icono Rapidez">
-                <h3>Envío Instantáneo</h3>
-                <p>Recibe tu código por correo en menos de 1 minuto.</p>
-            </article>
-
-            <article class="tarjeta">
-                <img src="img/icono-seguro.png" alt="Icono Seguridad">
-                <h3>Compra Segura</h3>
-                <p>Tus datos están protegidos con la mejor tecnología.</p>
-            </article>
-
-        </section>
     </main>
     <footer>
         <div class="info-footer">
