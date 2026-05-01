@@ -3,7 +3,7 @@ const config = {
       host: "db",
       user: "daw",
       password: "iesmanacor",
-      database: "practicavideojocs",
+      database: "practicaEnebien",
     },
     listPerPage: 10,
   };
