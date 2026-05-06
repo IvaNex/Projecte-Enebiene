@@ -1,10 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Enebiene</title>
+    <!-- Importamos la fuente y el CSS que ya tenemos -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css-index.css">
 </head>
 <body>
+<header>
+    <!-- Reutilizamos la cabecera exacta del index para no perder el formato -->
+    <div class="header-main">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagenes/logo%202.png" alt="Logotipo de Enebiene" class="logo-cabecera">
+            </a>
+        </div>
+        <div class="buscador">
+            <form action="productes.html" method="GET">
+                <input type="text" name="q" placeholder="Busca tu juego...">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+        <div class="header-enlaces">
+            <a href="#">❤️ Favoritos</a>
+            <a href="#">🛒 Carrito</a>
+            <a href="#">👤 Mi Perfil</a>
+        </div>
+    </div>
+    <nav class="menu">
+        <div class="categorias-desplegables">
+            <button class="btn-categorias">☰ Categorías</button>
+            <ul class="contenedor-desplegable">
+                <li><a href="productes.html?plataforma=pc">PC</a></li>
+                <li><a href="productes.html?plataforma=ps5">PlayStation 5</a></li>
+                <li><a href="productes.html?plataforma=xbox">Xbox Series X/S</a></li>
+                <li><a href="productes.html?plataforma=nintendo">Nintendo Switch</a></li>
+            </ul>
+        </div>
+        <ul class="lista-enlaces">
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="productes.html" class="activo">Productes</a></li>
+            <li><a href="creadors.html">Creadors</a></li>
+            <li><a href="sobre-nosaltres.html">Nosaltres</a></li>
+        </ul>
+    </nav>
+</header>
 
+<main>
+    <section class="bienvenida">
+        <h1>Catálogo de Videojuegos</h1>
+        <p>Explora las mejores ofertas en claves digitales.</p>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS: Usamos el grid que ya configuramos -->
+    <section class="contenedor-ventajas">
+        <!-- Juego 1 -->
+        <article class="tarjeta">
+            <img src="imagenes/juego1.jpg" alt="Cyberpunk 2077">
+            <h3>Cyberpunk 2077</h3>
+            <p>Sumérgete en el futuro de Night City.</p>
+            <span class="precio">29.99€</span>
+            <button class="btn-categorias">Añadir al carrito</button>
+        </article>
+
+        <!-- Juego 2 -->
+        <article class="tarjeta">
+            <img src="imagenes/juego2.jpg" alt="Elden Ring">
+            <h3>Elden Ring</h3>
+            <p>Desafía a los semidioses en las Tierras Intermedias.</p>
+            <span class="precio">39.50€</span>
+            <button class="btn-categorias">Añadir al carrito</button>
+        </article>
+
+        <!-- Juego 3 -->
+        <article class="tarjeta">
+            <img src="imagenes/juego3.jpg" alt="Minecraft">
+            <h3>Minecraft</h3>
+            <p>Construye tu propio mundo sin límites.</p>
+            <span class="precio">19.95€</span>
+            <button class="btn-categorias">Añadir al carrito</button>
+        </article>
+
+        <!-- Aquí puedes añadir más juegos siguiendo la misma estructura -->
+    </section>
+</main>
+
+<footer>
+    <div class="info-footer">
+        <p>&copy; 2026 Enebiene - Todos los derechos reservados.</p>
+        <p>Autores: [Ivan, Javi y Jeroni]</p>
+    </div>
+    <div class="redes-sociales">
+        <a href="#">Instagram</a>
+        <a href="#">X (Twitter)</a>
+        <a href="#">Discord</a>
+    </div>
+</footer>
 </body>
 </html>

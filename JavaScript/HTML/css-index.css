@@ -1,14 +1,4 @@
-/* ============================================================
-   1. VARIABLES Y BASE (ADN de la web)
-   ============================================================ */
-:root {
-    --negro-puro: #020204;
-    --azul-neon: #00f3ff;
-    --rosa-neon: #ff0055;
-    --cristal: rgba(255, 255, 255, 0.03);
-    --fuente-cyber: 'Rajdhani', sans-serif;
-}
-
+/* 1. CONFIGURACIÓN BÁSICA */
 * {
     margin: 0;
     padding: 0;
@@ -16,216 +6,145 @@
 }
 
 body {
-    background-color: var(--negro-puro);
-    background-image:
-            radial-gradient(circle at 15% 25%, rgba(0, 243, 255, 0.1) 0%, transparent 40%),
-            radial-gradient(circle at 85% 75%, rgba(0, 80, 255, 0.08) 0%, transparent 40%),
-            linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 35px 35px, 35px 35px;
-    background-attachment: fixed;
-    color: #fff;
-    font-family: var(--fuente-cyber);
-    overflow-x: hidden; /* Evita que la web "baile" hacia los lados en móvil */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Gris clarito de toda la vida */
+    color: #333;
 }
 
-/* ============================================================
-   2. DISTRIBUCIÓN (Layout y Navegación)
-   ============================================================ */
-
-/* Reset de listas para que no salgan puntos ni desorden */
-ul {
-    list-style: none;
-}
-
-/* Cabecera Principal */
+/* 2. CABECERA (LOGO Y BUSCADOR) */
 .header-main {
+    background-color: white;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
-    flex-wrap: wrap; /* Permite que los elementos bajen de fila en móvil */
+    border-bottom: 1px solid #ccc;
 }
 
 .logo-cabecera {
-    max-height: 50px;
-    width: auto;
-}
-
-/* Buscador */
-.buscador form {
-    display: flex;
+    height: 50px;
 }
 
 .buscador input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
-    color: white;
-    padding: 8px 15px;
+    padding: 8px;
     width: 250px;
+    border: 1px solid #999;
 }
 
-/* Menú de Navegación */
+/* 3. MENÚ DE NAVEGACIÓN */
 .menu {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    padding: 0 5%;
+    background-color: #333; /* Fondo oscuro */
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    list-style: none;
 }
 
 .lista-enlaces {
     display: flex;
-    flex-wrap: wrap; /* Para que no se corte en pantallas medianas */
+    list-style: none;
 }
 
 .lista-enlaces li a {
-    color: #ccc;
+    color: white;
     text-decoration: none;
-    padding: 15px 15px;
+    padding: 15px 20px;
     display: block;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
 }
 
-/* Desplegable de Categorías */
+.lista-enlaces li a:hover {
+    background-color: #555;
+}
+
+/* 4. MENÚ DESPLEGABLE (CATEGORÍAS) */
 .categorias-desplegables {
     position: relative;
 }
 
 .btn-categorias {
-    background: transparent;
-    border: 1px solid var(--azul-neon);
-    color: var(--azul-neon);
-    padding: 8px 15px;
+    background-color: #444;
+    color: white;
+    padding: 15px 20px;
+    border: none;
     cursor: pointer;
     font-weight: bold;
-    display: flex;
-    gap: 8px;
 }
 
 .contenedor-desplegable {
-    display: none;
+    display: none; /* Escondido */
     position: absolute;
-    top: 100%;
-    left: 0;
-    background: #0a0a0f;
-    border: 1px solid var(--azul-neon);
-    min-width: 200px;
-    z-index: 1000;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
 .contenedor-desplegable li a {
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    color: #333;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #eee;
 }
 
+/* El truco: cuando pasas el ratón por el contenedor, se muestra la lista */
 .categorias-desplegables:hover .contenedor-desplegable {
     display: block;
 }
 
-/* ============================================================
-   3. COMPONENTES (Tarjetas, Secciones)
-   ============================================================ */
-
+/* 5. CUERPO DE LA PÁGINA */
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
 .bienvenida {
     text-align: center;
-    padding: 60px 20px;
+    margin-bottom: 40px;
 }
 
-.descripcion-empresa {
-    background: rgba(0, 10, 20, 0.6);
-    border-left: 4px solid var(--azul-neon);
-    padding: 30px;
-    margin: 40px 0;
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 97% 100%, 0 100%);
-}
-
+/* GRID DE PRODUCTOS (3 columnas fijas, muy fácil de explicar) */
 .contenedor-ventajas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales[cite: 2] */
+    gap: 20px;
 }
 
 .tarjeta {
-    background: var(--cristal);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
     text-align: center;
 }
 
-/* Control de "Bestias 4K" */
 .tarjeta img {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    margin-bottom: 20px;
+    width: 150px; /* Tamaño fijo fácil de cambiar */
+    height: auto;
+    margin-bottom: 10px;
 }
 
-/* ============================================================
-   4. EFECTOS Y ANIMACIONES
-   ============================================================ */
-h1, .descripcion-empresa h2 {
-    color: var(--azul-neon);
-    text-shadow: 0 0 10px var(--azul-neon);
-    text-transform: uppercase;
+.precio {
+    font-size: 1.2rem;
+    color: #d32f2f; /* Rojo de oferta */
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
 }
 
-.tarjeta:hover {
-    border-color: var(--azul-neon);
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
-    transform: translateY(-5px);
-    transition: 0.3s;
-}
-
-.header-main a {
-    text-decoration: none;
+/* 6. PIE DE PÁGINA */
+footer {
+    background-color: #333;
     color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
 }
 
-/* ============================================================
-   5. OPTIMIZACIÓN (Móvil y Tablet)
-   ============================================================ */
-
-/* Para Tablets y Móviles grandes */
-@media (max-width: 900px) {
+/* 7. RESPONSIVE (Si la pantalla es pequeña, se pone en 1 columna)[cite: 2] */
+@media (max-width: 700px) {
+    .contenedor-ventajas {
+        grid-template-columns: 1fr;
+    }
     .header-main {
-        justify-content: center;
-        gap: 20px;
-    }
-    .buscador input {
-        width: 100%; /* El buscador ocupa más en pantallas pequeñas */
-    }
-}
-
-/* Para Móviles pequeños */
-@media (max-width: 600px) {
-    .menu {
-        flex-direction: column; /* Apila el botón de categorías y los enlaces */
-        height: auto;
-        padding: 10px;
-    }
-    .lista-enlaces {
-        justify-content: center;
-    }
-    .lista-enlaces li a {
-        padding: 10px;
-        font-size: 0.75rem;
-    }
-    .bienvenida h1 {
-        font-size: 1.5rem; /* Letras más pequeñas para que no se corten */
-    }
-    .tarjeta img {
-        width: 140px; /* Imágenes más pequeñas en móvil */
-        height: 140px;
+        flex-direction: column;
     }
 }
