@@ -1,4 +1,4 @@
-/* 1. CONFIGURACIÓN BÁSICA */
+/* 1. CONFIGURACIÓN GLOBAL */
 * {
     margin: 0;
     padding: 0;
@@ -6,145 +6,243 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Gris clarito de toda la vida */
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #334155;
+    background-color: #f8fafc; /* Fondo gris azulado muy clarito */
 }
 
-/* 2. CABECERA (LOGO Y BUSCADOR) */
-.header-main {
-    background-color: white;
+/* 2. CABECERA (HEADER) */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Contenedor de Logo y Buscador */
+.header-principal {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
 }
 
 .logo-cabecera {
-    height: 50px;
+    height: 55px; /* Tamaño del logo ajustado */
+    width: auto;
+}
+
+/* Estilos del Buscador */
+.buscador form {
+    display: flex;
+    gap: 0;
 }
 
 .buscador input {
-    padding: 8px;
-    width: 250px;
-    border: 1px solid #999;
+    padding: 10px 15px;
+    border: 2px solid #e2e8f0;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    width: 350px;
+    outline: none;
 }
 
-/* 3. MENÚ DE NAVEGACIÓN */
+.buscador button {
+    padding: 10px 20px;
+    background-color: #1a73e8; /* Azul corporativo */
+    color: white;
+    border: 2px solid #1a73e8;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.buscador button:hover {
+    background-color: #1557b0;
+}
+
+/* 3. NAVEGACIÓN (MENU) */
 .menu {
-    background-color: #333; /* Fondo oscuro */
-    display: flex;
-    list-style: none;
+    background-color: #1e293b; /* Azul muy oscuro profesional */
+    padding: 0;
 }
 
 .lista-enlaces {
-    display: flex;
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.lista-enlaces li a {
-    color: white;
+.lista-enlaces a {
+    display: block;
+    padding: 15px 25px;
     text-decoration: none;
-    padding: 15px 20px;
-    display: block;
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: all 0.3s;
 }
 
-.lista-enlaces li a:hover {
-    background-color: #555;
+.lista-enlaces a:hover {
+    color: #ffffff;
+    background-color: #334155;
 }
 
-/* 4. MENÚ DESPLEGABLE (CATEGORÍAS) */
-.categorias-desplegables {
-    position: relative;
+/* Estilo para la página donde te encuentras */
+.lista-enlaces a.activo {
+    color: #ffffff;
+    background-color: #1a73e8;
+    border-bottom: 3px solid #ffffff;
 }
 
-.btn-categorias {
-    background-color: #444;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.contenedor-desplegable {
-    display: none; /* Escondido */
-    position: absolute;
-    background-color: white;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.contenedor-desplegable li a {
-    color: #333;
-    padding: 12px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #eee;
-}
-
-/* El truco: cuando pasas el ratón por el contenedor, se muestra la lista */
-.categorias-desplegables:hover .contenedor-desplegable {
-    display: block;
-}
-
-/* 5. CUERPO DE LA PÁGINA */
+/* 4. CONTENIDO PRINCIPAL */
 main {
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
+/* Sección Hero (Bienvenida) */
 .bienvenida {
     text-align: center;
+    background: linear-gradient(135deg, #1e293b 0%, #1a73e8 100%);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 12px;
     margin-bottom: 40px;
 }
 
-/* GRID DE PRODUCTOS (3 columnas fijas, muy fácil de explicar) */
-.contenedor-ventajas {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas iguales[cite: 2] */
-    gap: 20px;
-}
-
-.tarjeta {
-    background-color: white;
-    border: 1px solid #ddd;
-    padding: 20px;
-    text-align: center;
-}
-
-.tarjeta img {
-    width: 150px; /* Tamaño fijo fácil de cambiar */
-    height: auto;
+.bienvenida h1 {
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
-.precio {
-    font-size: 1.2rem;
-    color: #d32f2f; /* Rojo de oferta */
-    font-weight: bold;
-    display: block;
-    margin: 10px 0;
-}
-
-/* 6. PIE DE PÁGINA */
-footer {
-    background-color: #333;
-    color: white;
+/* Sección Descripción (Nosaltres) */
+.descripcion-empresa {
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    max-width: 800px;
+    margin: 0 auto 60px;
 }
 
-/* 7. RESPONSIVE (Si la pantalla es pequeña, se pone en 1 columna)[cite: 2] */
-@media (max-width: 700px) {
-    .contenedor-ventajas {
-        grid-template-columns: 1fr;
-    }
-    .header-main {
+.descripcion-empresa h2 {
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* 5. TARJETAS (VENTAJAS, JUEGOS Y CREADORES) */
+.contenedor-ventajas, .grid-productos, .grid-creadors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.tarjeta {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.tarjeta img {
+    width: 100px; /* Tamaño para iconos de ventajas */
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* Estilo específico para cuando la tarjeta sea un JUEGO (se usará en JS) */
+.tarjeta-juego img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.precio {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a73e8;
+    margin: 15px 0;
+}
+
+/* 6. CONTROLES DE PRODUCTOS (SELECT Y BOTONES) */
+.controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+select, #btn-vista {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #cbd5e1;
+    cursor: pointer;
+}
+
+#btn-vista {
+    background-color: #1e293b;
+    color: white;
+}
+
+/* 7. PIE DE PÁGINA (FOOTER) */
+footer {
+    background-color: #1e293b;
+    color: #f1f5f9;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.info-footer {
+    margin-bottom: 20px;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.redes-sociales a:hover {
+    color: #ffffff;
+}
+
+/* 8. RESPONSIVE (Móviles) */
+@media (max-width: 768px) {
+    .header-principal {
         flex-direction: column;
+        gap: 20px;
+    }
+    .buscador input {
+        width: 100%;
+    }
+    .lista-enlaces {
+        flex-direction: column;
+    }
+    .lista-enlaces a {
+        text-align: center;
+        border-bottom: 1px solid #334155;
     }
 }

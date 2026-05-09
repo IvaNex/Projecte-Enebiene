@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,107 +9,64 @@
 <body>
 
 <!-- 1. CABECERA -->
-<header class="header-main">
-    <div class="logo">
-        <img src="imagenes/logo 2.png" alt="Enebiene" class="logo-cabecera">
+<header>
+    <div class="header-principal"> <div class="logo">
+        <a href="index.html">
+            <img src="imagenes/logo%203.png" alt="Logotipo de Enebiene" class="logo-cabecera">
+        </a>
     </div>
-    <div class="buscador">
-        <form>
-            <input type="text" placeholder="Busca tu juego...">
-            <button type="submit">Buscar</button>
-        </form>
+        <div class="buscador">
+            <form action="productes.html" method="GET">
+                <input type="text" name="q" placeholder="Busca tu juego en Enebiene...">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
     </div>
-</header>
 
-<!-- 2. MENÚ DE NAVEGACIÓN -->
-<nav class="menu">
-    <div class="categorias-desplegables">
-        <button class="btn-categorias">Categorías ▼</button>
-        <ul class="contenedor-desplegable">
-            <li><a href="pc.html">PC</a></li>
-            <li><a href="playstation.html">PlayStation</a></li>
-            <li><a href="xbox.html">Xbox</a></li>
-            <li><a href="nintendo.html">Nintendo</a></li>
+    <nav class="menu">
+        <ul class="lista-enlaces">
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="productes.html">Productes</a></li>
+            <li><a href="creadors.html">Creadors</a></li>
+            <li><a href="sobre-nosaltres.html">Nosaltres</a></li>
         </ul>
-    </div>
-    <ul class="lista-enlaces">
-        <li><a href="index.html">Inici</a></li>
-        <li><a href="productes.html" style="font-weight: bold; color: #1a73e8;">Productes</a></li>
-        <li><a href="#">Creadors</a></li>
-        <li><a href="#">Nosaltres</a></li>
-    </ul>
-</nav>
-
-<!-- 3. CONTENIDO PRINCIPAL (Donde estaba el fallo) -->
+    </nav>
+</header>
 <main>
     <section class="bienvenida">
-        <h1>Catálogo de Videojuegos</h1>
-        <p>Las mejores ofertas actualizadas hoy.</p>
+        <h1>Catàleg de Videojocs</h1>
     </section>
 
-    <!-- Contenedor Grid con 6 juegos para que se vea profesional -->
-    <section class="contenedor-ventajas">
-
-        <!-- Juego 1 -->
-        <article class="tarjeta">
-            <img src="imagenes/juego1.jpg" alt="Juego 1">
-            <h3>Cyberpunk 2077</h3>
-            <p>Acción futurista en Night City.</p>
-            <span class="precio">29.99€</span>
-            <button class="btn-categorias">Comprar</button>
-        </article>
-
-        <!-- Juego 2 -->
-        <article class="tarjeta">
-            <img src="imagenes/juego2.jpg" alt="Juego 2">
-            <h3>Elden Ring</h3>
-            <p>Fantasía épica y grandes desafíos.</p>
-            <span class="precio">39.95€</span>
-            <button class="btn-categorias">Comprar</button>
-        </article>
-
-        <!-- Juego 3 -->
-        <article class="tarjeta">
-            <img src="imagenes/juego3.jpg" alt="Juego 3">
-            <h3>FC 24</h3>
-            <p>El mejor simulador de fútbol.</p>
-            <span class="precio">19.90€</span>
-            <button class="btn-categorias">Comprar</button>
-        </article>
-
-        <!-- Juego 4 -->
-        <article class="tarjeta">
-            <img src="imagenes/juego4.jpg" alt="Juego 4">
-            <h3>Spider-Man 2</h3>
-            <p>Balancéate por toda Nueva York.</p>
-            <span class="precio">49.99€</span>
-            <button class="btn-categorias">Comprar</button>
-        </article>
-
-        <!-- Juego 5 -->
-        <article class="tarjeta">
-            <img src="imagenes/juego5.jpg" alt="Juego 5">
-            <h3>Minecraft</h3>
-            <p>Construye lo que puedas imaginar.</p>
-            <span class="precio">23.50€</span>
-            <button class="btn-categorias">Comprar</button>
-        </article>
-
-        <!-- Juego 6 -->
-        <article class="tarjeta">
-            <img src="imagenes/juego6.jpg" alt="Juego 6">
-            <h3>Starfield</h3>
-            <p>Explora el espacio infinito.</p>
-            <span class="precio">34.90€</span>
-            <button class="btn-categorias">Comprar</button>
-        </article>
-
+    <section class="controles">
+        <div class="ordenacion">
+            <label for="ordenar">Ordenar per:</label>
+            <select id="ordenar">
+                <option value="nota DESC">Millor puntuats</option>
+                <option value="nom ASC">Alfabètic (A-Z)</option>
+                <option value="preu ASC">Preu (Més barat)</option>
+            </select>
+        </div>
+        <button id="btn-vista">Canviar a Llista</button>
     </section>
+
+    <div id="contenedor-juegos" class="grid-productos">
+        <p>Carregant dades...</p>
+    </div>
 </main>
+
+<script src="js/api.js"></script>
+<script src="js/productes.js"></script>
 
 <!-- 4. PIE DE PÁGINA -->
 <footer>
-    <p>&copy; 2026 Enebiene - Autores: Ivan, Javi y Jeroni</p>
+    <div class="info-footer">
+        <p>&copy; 2026 Enebiene - Autors: Ivan, Javi i Jeroni</p>
+    </div>
+    <div class="redes-sociales">
+        <a href="#">Instagram</a>
+        <a href="#">X (Twitter)</a>
+        <a href="#">Discord</a>
+    </div>
 </footer>
 
 </body>

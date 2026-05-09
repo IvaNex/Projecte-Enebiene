@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enebiene</title>
+    <link rel="stylesheet" href="css-index.css">
 </head>
 <body>
+<header>
+    <div class="header-principal"> <div class="logo">
+        <a href="index.html">
+            <img src="imagenes/logo%203.png" alt="Logotipo de Enebiene" class="logo-cabecera">
+        </a>
+    </div>
+        <div class="buscador">
+            <form action="productes.html" method="GET">
+                <input type="text" name="q" placeholder="Busca tu juego en Enebiene...">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <ul class="lista-enlaces">
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="productes.html">Productes</a></li>
+            <li><a href="creadors.html">Creadors</a></li>
+            <li><a href="sobre-nosaltres.html">Nosaltres</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="bienvenida">
+        <h1>Creadors i Estudis</h1>
+        <p>Descobreix els equips de desenvolupament darrere dels teus jocs preferits.</p>
+    </section>
+
+    <section id="lista-creadors" class="grid-creadors">
+        <p>Carregant llista de creadors...</p>
+    </section>
+</main>
+<footer>
+    <div class="info-footer">
+        <p>&copy; 2026 Enebiene - Autors: Ivan, Javi i Jeroni</p>
+    </div>
+    <div class="redes-sociales">
+        <a href="#">Instagram</a>
+        <a href="#">X (Twitter)</a>
+        <a href="#">Discord</a>
+    </div>
+</footer>
+<script src="js/api.js"></script>
+<script src="js/creadors.js"></script>
 
 </body>
 </html>
