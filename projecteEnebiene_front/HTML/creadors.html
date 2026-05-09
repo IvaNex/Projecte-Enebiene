@@ -35,6 +35,25 @@
         <h1>Creadors i Estudis</h1>
         <p>Descobreix els equips de desenvolupament darrere dels teus jocs preferits.</p>
     </section>
+    <!--ordenacion de los creadores-->
+    <section class="controles">
+        <div class="ordenacion">
+            <label for="ordenar-creadors">Ordenar per:</label>
+            <select id="ordenar-creadors">
+                <option value="nom ASC">Nom (A-Z)</option>
+                <option value="nom DESC">Nom (Z-A)</option>
+                <option value="total_jocs DESC">Més jocs creats</option>
+                <option value="total_jocs ASC">Menys jocs creats</option>
+            </select>
+        </div>
+
+        <div class="filtro-genere">
+            <label for="filtre-genere">Filtrar per gènere:</label>
+            <select id="filtre-genere">
+                <option value="todos">Tots els gèneres</option>
+            </select>
+        </div>
+    </section>
 
     <section id="lista-creadors" class="grid-creadors">
         <p>Carregant llista de creadors...</p>
