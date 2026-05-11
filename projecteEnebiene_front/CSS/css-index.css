@@ -1,14 +1,4 @@
-/* ============================================================
-   1. VARIABLES Y BASE (ADN de la web)
-   ============================================================ */
-:root {
-    --negro-puro: #020204;
-    --azul-neon: #00f3ff;
-    --rosa-neon: #ff0055;
-    --cristal: rgba(255, 255, 255, 0.03);
-    --fuente-cyber: 'Rajdhani', sans-serif;
-}
-
+/* 1. CONFIGURACIÓN GLOBAL */
 * {
     margin: 0;
     padding: 0;
@@ -16,216 +6,243 @@
 }
 
 body {
-    background-color: var(--negro-puro);
-    background-image:
-            radial-gradient(circle at 15% 25%, rgba(0, 243, 255, 0.1) 0%, transparent 40%),
-            radial-gradient(circle at 85% 75%, rgba(0, 80, 255, 0.08) 0%, transparent 40%),
-            linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-    background-size: 100% 100%, 100% 100%, 35px 35px, 35px 35px;
-    background-attachment: fixed;
-    color: #fff;
-    font-family: var(--fuente-cyber);
-    overflow-x: hidden; /* Evita que la web "baile" hacia los lados en móvil */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #334155;
+    background-color: #f8fafc; /* Fondo gris azulado muy clarito */
 }
 
-/* ============================================================
-   2. DISTRIBUCIÓN (Layout y Navegación)
-   ============================================================ */
-
-/* Reset de listas para que no salgan puntos ni desorden */
-ul {
-    list-style: none;
+/* 2. CABECERA (HEADER) */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-/* Cabecera Principal */
-.header-main {
+/* Contenedor de Logo y Buscador */
+.header-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
-    flex-wrap: wrap; /* Permite que los elementos bajen de fila en móvil */
 }
 
 .logo-cabecera {
-    max-height: 50px;
+    height: 55px; /* Tamaño del logo ajustado */
     width: auto;
 }
 
-/* Buscador */
+/* Estilos del Buscador */
 .buscador form {
     display: flex;
+    gap: 0;
 }
 
 .buscador input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
-    color: white;
-    padding: 8px 15px;
-    width: 250px;
+    padding: 10px 15px;
+    border: 2px solid #e2e8f0;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    width: 350px;
+    outline: none;
 }
 
-/* Menú de Navegación */
+.buscador button {
+    padding: 10px 20px;
+    background-color: #1a73e8; /* Azul corporativo */
+    color: white;
+    border: 2px solid #1a73e8;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.buscador button:hover {
+    background-color: #1557b0;
+}
+
+/* 3. NAVEGACIÓN (MENU) */
 .menu {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+    background-color: #1e293b; /* Azul muy oscuro profesional */
+    padding: 0;
 }
 
 .lista-enlaces {
+    list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Para que no se corte en pantallas medianas */
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.lista-enlaces li a {
-    color: #ccc;
+.lista-enlaces a {
+    display: block;
+    padding: 15px 25px;
     text-decoration: none;
-    padding: 15px 15px;
-    display: block;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.85rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: all 0.3s;
 }
 
-/* Desplegable de Categorías */
-.categorias-desplegables {
-    position: relative;
+.lista-enlaces a:hover {
+    color: #ffffff;
+    background-color: #334155;
 }
 
-.btn-categorias {
-    background: transparent;
-    border: 1px solid var(--azul-neon);
-    color: var(--azul-neon);
-    padding: 8px 15px;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    gap: 8px;
+/* Estilo para la página donde te encuentras */
+.lista-enlaces a.activo {
+    color: #ffffff;
+    background-color: #1a73e8;
+    border-bottom: 3px solid #ffffff;
 }
 
-.contenedor-desplegable {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #0a0a0f;
-    border: 1px solid var(--azul-neon);
-    min-width: 200px;
-    z-index: 1000;
-}
-
-.contenedor-desplegable li a {
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.1);
-}
-
-.categorias-desplegables:hover .contenedor-desplegable {
-    display: block;
-}
-
-/* ============================================================
-   3. COMPONENTES (Tarjetas, Secciones)
-   ============================================================ */
-
+/* 4. CONTENIDO PRINCIPAL */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
+/* Sección Hero (Bienvenida) */
 .bienvenida {
     text-align: center;
+    background: linear-gradient(135deg, #1e293b 0%, #1a73e8 100%);
+    color: white;
     padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
 }
 
+.bienvenida h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Sección Descripción (Nosaltres) */
 .descripcion-empresa {
-    background: rgba(0, 10, 20, 0.6);
-    border-left: 4px solid var(--azul-neon);
-    padding: 30px;
-    margin: 40px 0;
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 97% 100%, 0 100%);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
 }
 
-.contenedor-ventajas {
+.descripcion-empresa h2 {
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* 5. TARJETAS (VENTAJAS, JUEGOS Y CREADORES) */
+.contenedor-ventajas, .grid-productos, .grid-creadors {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
 }
 
 .tarjeta {
-    background: var(--cristal);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px 20px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Control de "Bestias 4K" */
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
 .tarjeta img {
-    width: 180px;
-    height: 180px;
+    width: 100px; /* Tamaño para iconos de ventajas */
+    height: 100px;
     object-fit: contain;
     margin-bottom: 20px;
 }
 
-/* ============================================================
-   4. EFECTOS Y ANIMACIONES
-   ============================================================ */
-h1, .descripcion-empresa h2 {
-    color: var(--azul-neon);
-    text-shadow: 0 0 10px var(--azul-neon);
-    text-transform: uppercase;
+/* Estilo específico para cuando la tarjeta sea un JUEGO (se usará en JS) */
+.tarjeta-juego img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-.tarjeta:hover {
-    border-color: var(--azul-neon);
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
-    transform: translateY(-5px);
-    transition: 0.3s;
+.precio {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a73e8;
+    margin: 15px 0;
 }
 
-.header-main a {
-    text-decoration: none;
+/* 6. CONTROLES DE PRODUCTOS (SELECT Y BOTONES) */
+.controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+select, #btn-vista {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #cbd5e1;
+    cursor: pointer;
+}
+
+#btn-vista {
+    background-color: #1e293b;
     color: white;
 }
 
-/* ============================================================
-   5. OPTIMIZACIÓN (Móvil y Tablet)
-   ============================================================ */
+/* 7. PIE DE PÁGINA (FOOTER) */
+footer {
+    background-color: #1e293b;
+    color: #f1f5f9;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
 
-/* Para Tablets y Móviles grandes */
-@media (max-width: 900px) {
-    .header-main {
-        justify-content: center;
+.info-footer {
+    margin-bottom: 20px;
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.redes-sociales a:hover {
+    color: #ffffff;
+}
+
+/* 8. RESPONSIVE (Móviles) */
+@media (max-width: 768px) {
+    .header-principal {
+        flex-direction: column;
         gap: 20px;
     }
     .buscador input {
-        width: 100%; /* El buscador ocupa más en pantallas pequeñas */
-    }
-}
-
-/* Para Móviles pequeños */
-@media (max-width: 600px) {
-    .menu {
-        flex-direction: column; /* Apila el botón de categorías y los enlaces */
-        height: auto;
-        padding: 10px;
+        width: 100%;
     }
     .lista-enlaces {
-        justify-content: center;
+        flex-direction: column;
     }
-    .lista-enlaces li a {
-        padding: 10px;
-        font-size: 0.75rem;
-    }
-    .bienvenida h1 {
-        font-size: 1.5rem; /* Letras más pequeñas para que no se corten */
-    }
-    .tarjeta img {
-        width: 140px; /* Imágenes más pequeñas en móvil */
-        height: 140px;
+    .lista-enlaces a {
+        text-align: center;
+        border-bottom: 1px solid #334155;
     }
 }

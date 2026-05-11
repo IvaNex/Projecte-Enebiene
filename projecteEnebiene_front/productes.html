@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enebiene</title>
+    <link rel="stylesheet" href="CSS/css-index.css"> <!-- Asegúrate de que el nombre coincida -->
+</head>
+<body>
+
+<!-- 1. CABECERA -->
+<header>
+    <div class="header-principal"> <div class="logo">
+        <a href="index.html">
+            <img src="imagenes/logo%203.png" alt="Logotipo de Enebiene" class="logo-cabecera">
+        </a>
+    </div>
+        <div class="buscador">
+            <form action="productes.html" method="GET">
+                <input type="text" name="q" placeholder="Busca tu juego en Enebiene...">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <ul class="lista-enlaces">
+            <li><a href="index.html">Inici</a></li>
+            <li><a href="productes.html">Productes</a></li>
+            <li><a href="creadors.html">Creadors</a></li>
+            <li><a href="sobre-nosaltres.html">Nosaltres</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="bienvenida">
+        <h1>Catàleg de Videojocs</h1>
+    </section>
+
+    <section class="controles">
+        <div class="ordenacion">
+            <label for="ordenar">Ordenar per:</label>
+            <select id="ordenar">
+                <option value="nota DESC">Millor puntuats</option>
+                <option value="nom ASC">Alfabètic (A-Z)</option>
+                <option value="preu ASC">Preu (Més barat)</option>
+            </select>
+        </div>
+        <button id="btn-vista">Canviar a Llista</button>
+    </section>
+
+    <div id="contenedor-juegos" class="grid-productos">
+        <p>Carregant dades...</p>
+    </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/productes.js"></script>
+
+<!-- 4. PIE DE PÁGINA -->
+<footer>
+    <div class="info-footer">
+        <p>&copy; 2026 Enebiene - Autors: Ivan, Javi i Jeroni</p>
+    </div>
+    <div class="redes-sociales">
+        <a href="#">Instagram</a>
+        <a href="#">X (Twitter)</a>
+        <a href="#">Discord</a>
+    </div>
+</footer>
+
+</body>
+</html>
