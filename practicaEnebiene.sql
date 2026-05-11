@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 11-05-2026 a las 08:41:19
+-- Tiempo de generación: 11-05-2026 a las 19:19:13
 -- Versión del servidor: 10.7.8-MariaDB-1:10.7.8+maria~ubu2004
 -- Versión de PHP: 8.3.30
 
@@ -45,6 +45,23 @@ CREATE TABLE `generos` (
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `videojuegos`
+--
+
+CREATE TABLE `videojuegos` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `precio` decimal(10,2) DEFAULT NULL,
+  `puntuacion` int(11) DEFAULT NULL,
+  `fecha_lanzamiento` date DEFAULT NULL,
+  `pegi` varchar(10) DEFAULT NULL,
+  `es_multijugador` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -62,6 +79,12 @@ ALTER TABLE `generos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `videojuegos`
+--
+ALTER TABLE `videojuegos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -75,6 +98,12 @@ ALTER TABLE `creadores`
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `videojuegos`
+--
+ALTER TABLE `videojuegos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
