@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # Apache
+  servidorweb:
+    image: httpd:2.4
+    ports:
+      - "80:80"
+    volumes:
+      - ./projecteEnebiene_front:/usr/local/apache2/htdocs
+    networks:
+      - xarxa-practica
+
+  # Node.js
+  node:
+    image: node:16
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./projecteEnebiene_server:/app
+    working_dir: /app
+    command: npm start
+    networks:
+      - xarxa-practica
+    depends_on:
+      - db
+
+  # MariaDB
+  db:
+    image: mariadb:10.7
+    environment:
+      MYSQL_ROOT_PASSWORD: iesmanacorroot
+      MYSQL_USER: daw
+      MYSQL_PASSWORD: iesmanacor
+      MYSQL_DATABASE: practicaEnebien
+    volumes:
+      - ./volums/mysql:/var/lib/mysql
+      - ./practicaEnebiene.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+    networks:
+      - xarxa-practica
+
+  # phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8083:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+    networks:
+      - xarxa-practica
+
+
+#Network
+networks:
+  xarxa-practica:
+    driver: bridge
