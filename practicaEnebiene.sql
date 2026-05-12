@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db
--- Tiempo de generación: 11-05-2026 a las 19:19:13
+-- Tiempo de generación: 12-05-2026 a las 17:37:02
 -- Versión del servidor: 10.7.8-MariaDB-1:10.7.8+maria~ubu2004
 -- Versión de PHP: 8.3.30
 
@@ -31,36 +31,20 @@ CREATE TABLE `creadores` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `pais` varchar(50) DEFAULT NULL,
-  `imagen` varchar(255) DEFAULT NULL
+  `imagen` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `generos`
+-- Volcado de datos para la tabla `creadores`
 --
 
-CREATE TABLE `generos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `videojuegos`
---
-
-CREATE TABLE `videojuegos` (
-  `id` int(11) NOT NULL,
-  `titulo` varchar(100) NOT NULL,
-  `descripcion` text DEFAULT NULL,
-  `precio` decimal(10,2) DEFAULT NULL,
-  `puntuacion` int(11) DEFAULT NULL,
-  `fecha_lanzamiento` date DEFAULT NULL,
-  `pegi` varchar(10) DEFAULT NULL,
-  `es_multijugador` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `creadores` (`id`, `nombre`, `pais`, `imagen`, `descripcion`) VALUES
+(1, 'Nintendo', 'Japón', 'nintendo.png', 'Creadores de Mario y Zelda'),
+(2, 'Rockstar Games', 'EEUU', 'rockstar.png', 'Famosos por la saga GTA'),
+(3, 'Ubisoft', 'Francia', 'ubisoft.png', 'Desarrolladores de Assassin\'s Creed'),
+(4, 'Sony Interactive', 'Japón', 'sony.png', 'Responsables de la marca PlayStation'),
+(5, 'Electronic Arts', 'EEUU', 'ea.png', 'Líderes en juegos de deportes como FIFA/FC');
 
 --
 -- Índices para tablas volcadas
@@ -73,18 +57,6 @@ ALTER TABLE `creadores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `generos`
---
-ALTER TABLE `generos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `videojuegos`
---
-ALTER TABLE `videojuegos`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -92,19 +64,7 @@ ALTER TABLE `videojuegos`
 -- AUTO_INCREMENT de la tabla `creadores`
 --
 ALTER TABLE `creadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `generos`
---
-ALTER TABLE `generos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `videojuegos`
---
-ALTER TABLE `videojuegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
