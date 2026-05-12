@@ -1,9 +1,9 @@
 const config = {
     db: {
-      host: "",
-      user: "",
-      password: "",
-      database: "",
+      host: "db",
+      user: "daw",
+      password: "iesmanacor",
+      database: "practicaEnebien",
     },
     listPerPage: 10,
   };
