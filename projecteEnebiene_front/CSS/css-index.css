@@ -246,3 +246,73 @@ footer {
         border-bottom: 1px solid #334155;
     }
 }
+
+/* =========================================
+   VISTAS: CUADRÍCULA Y LISTA (CREADORES)
+   ========================================= */
+
+/* --- 1. MODO CUADRÍCULA (Grid) --- */
+/* Similar a lo que ya tenías, pero usando tu nueva clase */
+.cuadricula_creadores {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* En cuadrícula, las tarjetas son verticales (imagen arriba, texto abajo) */
+.cuadricula_creadores .tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+
+/* --- 2. MODO LISTA (List) --- */
+/* El contenedor pasa a ser una columna vertical */
+.lista_creadores {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+/* En lista, las tarjetas se vuelven horizontales */
+.lista_creadores .tarjeta {
+    display: flex;
+    flex-direction: row; /* Imagen a la izquierda, texto a la derecha */
+    align-items: center;
+    text-align: left;
+    padding: 20px 30px;
+}
+
+/* Ajustamos la imagen para la vista de lista */
+.lista_creadores .tarjeta img {
+    margin-bottom: 0; /* Quitamos el margen inferior */
+    margin-right: 30px; /* Ponemos margen a la derecha para separar del texto */
+    width: 120px; /* Puedes ajustar este tamaño */
+    height: 120px;
+    object-fit: contain;
+}
+
+/* Contenedor del texto dentro de la tarjeta en vista lista */
+.lista_creadores .tarjeta-info {
+    flex: 1; /* Ocupa el resto del espacio disponible */
+}
+
+
+/* --- 3. RESPONSIVE PARA MODO LISTA --- */
+/* En móviles, la vista de lista se vuelve a apilar para que quepa bien */
+@media (max-width: 600px) {
+    .lista_creadores .tarjeta {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .lista_creadores .tarjeta img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
