@@ -21,6 +21,13 @@ async function mostrarCreadores() {
             </div>
         `;
 
+        const imagenCreador = document.querySelector(".img-creador");
+        imagenCreador.addEventListener("click", creadorIndividual);
+
+        function creadorIndividual() {
+            window.location.href = `productes.html?id=${creador.id}`;
+        }
+
         container.appendChild(contenedorCreador);
     });
 }
