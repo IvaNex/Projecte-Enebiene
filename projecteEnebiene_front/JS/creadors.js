@@ -33,7 +33,7 @@ async function mostrarCreadores(orden = "nom ASC") {
 
         contenedorCreador.innerHTML = `
             <a href="productos.html?creadors=${creador.id}">
-            <img src="imagenes/${creador.imagen}" alt="Logo de ${creador.nombre}" class="img-creador">
+            <img src="imagenes/imagen-creadores.png" alt="Logo de ${creador.nombre}" class="img-creador">
             </a>
             <div class="info">
                 <h2>${creador.nombre}</h2>
