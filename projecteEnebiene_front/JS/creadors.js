@@ -53,7 +53,7 @@ const selector = document.querySelector("#ordenar-creadors");
 if (selector) {
     selector.addEventListener("change", (e) => {
         const valorElegido = e.target.value;
-        console.log("Cambiando orden a: " + valorElegido);
+        //console.log("Cambiando orden a: " + valorElegido);
         mostrarCreadores(valorElegido);
     });
 }
