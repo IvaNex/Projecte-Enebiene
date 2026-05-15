@@ -235,3 +235,23 @@ footer {
     text-align: center;
     background-color: white;
 }
+.img-creador {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+
+}
+.contenedorCreador {
+
+        width: 240px;
+        display: inline-block;
+        margin: 15px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        vertical-align: top;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 8px;
+
+}
