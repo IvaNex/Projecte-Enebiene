@@ -1,16 +1,16 @@
-async function mostrarCreadores(orden = "nombre-asc") {
+async function mostrarCreadores(orden = "nom ASC") {
 
     let sql = "SELECT c.id, c.nombre, c.pais, c.imagen, COUNT(v.id) AS total_juegos FROM creadores c LEFT JOIN videojuegos v ON v.id_creador = c.id GROUP BY c.id"
 
     switch (orden) {
 
-        case "juegos-asc":
+        case "total_jocs ASC":
             sql += " ORDER BY TOTAL_juegos ASC";
             break;
-        case "juegos-desc":
+        case "total_jocs DESC":
             sql += " ORDER BY total_juegos DESC";
             break;
-        case "nombre-desc":
+        case "nom DESC":
             sql += " ORDER BY c.nombre DESC";
             break;
         default:
@@ -32,7 +32,7 @@ async function mostrarCreadores(orden = "nombre-asc") {
         contenedorCreador.classList.add("contenedorCreador");
 
         contenedorCreador.innerHTML = `
-            <a herf="productos.html?creadors=${creador.id}">
+            <a href="productos.html?creadors=${creador.id}">
             <img src="imagenes/${creador.imagen}" alt="Logo de ${creador.nombre}" class="img-creador">
             </a>
             <div class="info">
@@ -51,10 +51,10 @@ mostrarCreadores();
 const selector = document.querySelector("#ordenar-creadors");
 
 if (selector) {
-    selector.addEventListener("changer", (e) => {
+    selector.addEventListener("change", (e) => {
         const valorElegido = e.target.value;
         console.log("Cambiando orden a: " + valorElegido);
-        mostrarCreadores(e.target.value);
+        mostrarCreadores(valorElegido);
     });
 }
 
