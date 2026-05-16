@@ -316,3 +316,42 @@ footer {
     font-size: 1.2rem;              
     font-weight: bold;             
 }
+
+
+/*Resposive de el modo lista para moviles*/
+@media (max-width: 768px) {
+    
+    /*Targetas en horizontal*/
+    .grid-productos.llistaProductes .contenedorProducte {
+        flex-direction: row; 
+        padding: 15px;
+        align-items: center;
+    }
+
+    /*Foto pequeña para poder seguir manteniendo el formato lista*/
+    .grid-productos.llistaProductes .contenedorProducte img {
+        width: 80px;            
+        height: auto;
+        margin-right: 15px;     
+        margin-bottom: 0;
+    }
+
+    /*Colocamos titulo precio y puntuacion uno arriba de otro*/
+    .grid-productos.llistaProductes .contenedorProducte > div {
+        flex-direction: column;  
+        align-items: flex-start; 
+        gap: 5px;                
+    }
+
+    /*Letras mas pequeñas (por el movil)*/
+    .grid-productos.llistaProductes .contenedorProducte > div h2 {
+        width: 100%;
+        text-align: left;
+        font-size: 1.2rem;       
+    }
+    /*Precio a la izquierda y tamaño normal*/
+    .grid-productos.llistaProductes .contenedorProducte > div p {
+        text-align: left;        
+        font-size: 1rem;         
+    }
+}
