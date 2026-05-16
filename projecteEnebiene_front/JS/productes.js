@@ -43,8 +43,9 @@ async function mostrarProductes(orden = "nom ASC") {
             
             <div class="info">
                 <h2>${juego.titulo}</h2>
-                <p><strong>Preu</strong> ${juego.precio}</p>
-                <p><strong>Puntuacio del joc:</strong> ${juego.puntuacion}</p>
+                <p class="preu"><strong>Preu</strong> ${juego.precio}</p>
+                <p class="puntuacio"><strong>Puntuacio del joc:</strong> ${juego.puntuacion}</p>
+                <p class="descripcio"><strong>Descripcio:</strong> ${juego.descripcion}</p>
             </div>
         `;
 
@@ -65,8 +66,8 @@ if (selector) {
 }
 
 
-const btnVista = document.getElementById('btn-vista');
-const listProductos = document.getElementById('contenedor-juegos');
+const btnVista = document.querySelector('#btn-vista');
+const listProductos = document.querySelector('#contenedor-juegos');
  if (btnVista && listProductos) {
     btnVista.addEventListener('click', () => {
         listProductos.classList.toggle('llistaProductes');
@@ -76,5 +77,9 @@ const listProductos = document.getElementById('contenedor-juegos');
         } else {
             btnVista.textContent = 'Canviar a Llista'
         }
+
+
     })
  }
+
+

@@ -355,3 +355,23 @@ footer {
         font-size: 1rem;         
     }
 }
+
+
+/*Para enseñar y esconder las cosas de descripcion precio y puintuacion*/
+.descripcio {
+    display: none; 
+}
+
+.preu,
+.puntuacio {
+    display: block; 
+}
+
+.grid-productos.llistaProductes .descripcio {
+    display: block;
+}
+
+.grid-productos.llistaProductes .preu,
+.grid-productos.llistaProductes .puntuacio {
+    display: none;
+}
