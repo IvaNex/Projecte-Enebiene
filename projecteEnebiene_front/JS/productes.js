@@ -1,7 +1,16 @@
 async function mostrarProductes(orden = "nom ASC") {
 
-    let sql = "SELECT v.id, v.titulo, v.descripcion, v.precio, v.puntuacion, v.fecha_lanzamiento, v.pegi, v.es_multijugador, v.id_genero, v.id_creador From videojuegos v LEFT JOIN creadores c ON v.id_creador = c.id GROUP BY v.id"
+    const idCreador=localStorage.getItem('creador');
+    localStorage.removeItem('creador');
 
+
+    let sql = "SELECT v.id, v.titulo, v.descripcion, v.precio, v.puntuacion, v.fecha_lanzamiento, v.pegi, v.es_multijugador, v.id_genero, v.id_creador From videojuegos v LEFT JOIN creadores c ON v.id_creador = c.id"
+
+    if (idCreador){
+        sql += ` WHERE id_creador = ${idCreador}`;
+    }
+
+    sql += " GROUP BY v.id";
     switch (orden) {
 
         case "nota ASC":
@@ -23,6 +32,8 @@ async function mostrarProductes(orden = "nom ASC") {
             sql += " ORDER BY v.titulo ASC";
 
     }
+    console.log("¡ATENCIÓN! La query final que voy a enviar es:");
+    console.log(sql);
     const productes = await consultar(sql);
     //console.log(productes);
     const container = document.querySelector("#contenedor-juegos");
