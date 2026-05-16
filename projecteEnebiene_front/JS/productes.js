@@ -1,28 +1,28 @@
-async function mostrarCreadores(orden = "nom ASC") {
+async function mostrarProductes(orden = "nom ASC") {
 
-    let sql = "SELECT v.id, v.titulo, v.descripcion, v.precio, v.puntuacion, v.fecha_lanzamiento, v.pegi, v.es_multijugador, v.id_genero, v.id_creador From videojuegos"
+    let sql = "SELECT v.id, v.titulo, v.descripcion, v.precio, v.puntuacion, v.fecha_lanzamiento, v.pegi, v.es_multijugador, v.id_genero, v.id_creador From videojuegos v LEFT JOIN creadores c ON v.id_creador = c.id GROUP BY v.id"
 
     switch (orden) {
 
         case "nota ASC":
-            sql += " ORDER BY ASC";
+            sql += " ORDER BY v.puntuacion ASC";
             break;
         case "nota DESC":
-            sql += " ORDER BY DESC";
+            sql += " ORDER BY v.puntuacion DESC";
             break;
         case "preu ASC":
-            sql += " ORDER BY ASC";
+            sql += " ORDER BY v.precio ASC";
         case "preu DESC":
-            sql += " ORDER BY DESC";
+            sql += " ORDER BY v.precio DESC";
             break;
         case "nom DESC":
-            sql += " ORDER BY DESC";
+            sql += " ORDER BY v.titulo DESC";
         default:
-            sql += " ORDER BY ASC";
+            sql += " ORDER BY v.titulo ASC";
 
     }
     const productes = await consultar(sql);
-    //console.log(creadores);
+    //console.log(productes);
     const container = document.querySelector("#contenedor-juegos");
 
     if(!productes) {
@@ -31,25 +31,25 @@ async function mostrarCreadores(orden = "nom ASC") {
     }
     container.innerHTML = "";
 
-    productes.forEach(productes => {
-        const contenedorProductes = document.createElement("div");
-        contenedorProductes.classList.add("contenedorProductes");
+    productes.forEach(juego => {
+        const contenedorProducte = document.createElement("div");
+        contenedorProducte.classList.add("contenedorProductes");
 
-        contenedorProductes.innerHTML = `
+        contenedorProducte.innerHTML = `
             
-            <img src="imagenes/imagen-creadores.png" alt="Logo de ${creador.nombre}" class="img-creador">
+            <img src="imagenes/imagen-creadores.png" alt="Logo de ${juego.titulo}" class="img-creador">
             
             <div class="info">
-                <h2>${videojuegos.titulo}</h2>
-                <p><strong>País:</strong> ${creador.pais}</p>
-                <p><strong>Juegos creados:</strong> ${creador.total_juegos}</p>
+                <h2>${juego.titulo}</h2>
+                <p><strong>Preu</strong> ${juego.precio}</p>
+                <p><strong>Puntuacio del joc:</strong> ${juego.puntuacion}</p>
             </div>
         `;
 
-        container.appendChild(contenedorCreador);
+        container.appendChild(contenedorProducte);
     });
 }
-mostrarCreadores();
+mostrarProductes();
 
 
 const selector = document.querySelector("#ordenar-videojuegos");
@@ -57,7 +57,7 @@ const selector = document.querySelector("#ordenar-videojuegos");
 if (selector) {
     selector.addEventListener("change", (e) => {
         const valorElegido = e.target.value;
-        //console.log("Cambiando orden a: " + valorElegido);
-        mostrarCreadores(valorElegido);
+        console.log("Cambiando orden a: " + valorElegido);
+        mostrarProductes(valorElegido);
     });
 }
