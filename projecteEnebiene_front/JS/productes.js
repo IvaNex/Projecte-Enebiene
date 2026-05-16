@@ -12,11 +12,13 @@ async function mostrarProductes(orden = "nom ASC") {
             break;
         case "preu ASC":
             sql += " ORDER BY v.precio ASC";
+            break;
         case "preu DESC":
             sql += " ORDER BY v.precio DESC";
             break;
         case "nom DESC":
             sql += " ORDER BY v.titulo DESC";
+            break;
         default:
             sql += " ORDER BY v.titulo ASC";
 
@@ -33,11 +35,11 @@ async function mostrarProductes(orden = "nom ASC") {
 
     productes.forEach(juego => {
         const contenedorProducte = document.createElement("div");
-        contenedorProducte.classList.add("contenedorProductes");
+        contenedorProducte.classList.add("contenedorProducte");
 
         contenedorProducte.innerHTML = `
             
-            <img src="imagenes/imagen-creadores.png" alt="Logo de ${juego.titulo}" class="img-creador">
+            <img src="imagenes/portada-juego.png" alt="Logo de ${juego.titulo}" class="img-juego">
             
             <div class="info">
                 <h2>${juego.titulo}</h2>
