@@ -1,20 +1,24 @@
 async function mostrarCreadores(orden = "nom ASC") {
 
-    let sql = "SELECT c.id, c.nombre, c.pais, c.imagen, COUNT(v.id) AS total_juegos FROM creadores c LEFT JOIN videojuegos v ON v.id_creador = c.id GROUP BY c.id"
+    let sql = "SELECT v.id, v.titulo, v.descripcion, v.precio, v.puntuacion, v.fecha_lanzamiento, v.pegi, v.es_multijugador, v.id_genero, v.id_creador From videojuegos"
 
     switch (orden) {
 
-        case "total_jocs ASC":
-            sql += " ORDER BY TOTAL_juegos ASC";
+        case "nota ASC":
+            sql += " ORDER BY ASC";
             break;
-        case "total_jocs DESC":
-            sql += " ORDER BY total_juegos DESC";
+        case "nota DESC":
+            sql += " ORDER BY DESC";
+            break;
+        case "preu ASC":
+            sql += " ORDER BY ASC";
+        case "preu DESC":
+            sql += " ORDER BY DESC";
             break;
         case "nom DESC":
-            sql += " ORDER BY c.nombre DESC";
-            break;
+            sql += " ORDER BY DESC";
         default:
-            sql += " ORDER BY c.nombre ASC";
+            sql += " ORDER BY ASC";
 
     }
     const productes = await consultar(sql);
@@ -32,11 +36,11 @@ async function mostrarCreadores(orden = "nom ASC") {
         contenedorProductes.classList.add("contenedorProductes");
 
         contenedorProductes.innerHTML = `
-            <a href="productos.html?creadors=${creador.id}">
+            
             <img src="imagenes/imagen-creadores.png" alt="Logo de ${creador.nombre}" class="img-creador">
-            </a>
+            
             <div class="info">
-                <h2>${creador.nombre}</h2>
+                <h2>${videojuegos.titulo}</h2>
                 <p><strong>País:</strong> ${creador.pais}</p>
                 <p><strong>Juegos creados:</strong> ${creador.total_juegos}</p>
             </div>
@@ -48,7 +52,7 @@ async function mostrarCreadores(orden = "nom ASC") {
 mostrarCreadores();
 
 
-const selector = document.querySelector("#ordenar-creadors");
+const selector = document.querySelector("#ordenar-videojuegos");
 
 if (selector) {
     selector.addEventListener("change", (e) => {
