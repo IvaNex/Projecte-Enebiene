@@ -1,11 +1,23 @@
+// 1. Variable global para recordar el género seleccionado
+let generoSeleccionado = "todos";
+
 async function mostrarCreadores(orden = "nom ASC") {
 
-    let sql = "SELECT c.id, c.nombre, c.pais, c.imagen, COUNT(v.id) AS total_juegos FROM creadores c LEFT JOIN videojuegos v ON v.id_creador = c.id GROUP BY c.id"
+    // Consulta base modificada para poder inyectar un WHERE si hace falta
+    let sql = "SELECT c.id, c.nombre, c.pais, c.imagen, COUNT(v.id) AS total_juegos FROM creadores c LEFT JOIN videojuegos v ON v.id_creador = c.id";
 
+    // 2. FILTRADO: Si hay un género seleccionado, añadimos el WHERE antes del GROUP BY
+    if (generoSeleccionado !== "todos") {
+        sql += ` WHERE v.id_genero = ${generoSeleccionado}`;
+    }
+
+    // Cerramos la agrupación obligatoria
+    sql += " GROUP BY c.id";
+
+    // TU SWITCH ORIGINAL (Corregido 'TOTAL_juegos' a minúsculas para evitar fallos de Docker)
     switch (orden) {
-
         case "total_jocs ASC":
-            sql += " ORDER BY TOTAL_juegos ASC";
+            sql += " ORDER BY total_juegos ASC";
             break;
         case "total_jocs DESC":
             sql += " ORDER BY total_juegos DESC";
@@ -15,10 +27,9 @@ async function mostrarCreadores(orden = "nom ASC") {
             break;
         default:
             sql += " ORDER BY c.nombre ASC";
-
     }
+
     const creadors = await consultar(sql);
-    //console.log(creadores); 
     const container = document.querySelector("#lista-creadors");
 
     if(!creadors) {
@@ -53,13 +64,27 @@ mostrarCreadores();
 
 
 const selector = document.querySelector("#ordenar-creadors");
-
 if (selector) {
     selector.addEventListener("change", (e) => {
         const valorElegido = e.target.value;
-        //console.log("Cambiando orden a: " + valorElegido);
         mostrarCreadores(valorElegido);
     });
 }
 
-
+// 3. NUEVO: Escuchar el cambio en el selector de filtrar por género
+const filtroGenere = document.querySelector("#filtre-genere");
+if (filtroGenere) {
+    filtroGenere.addEventListener("change", (e) => {
+        generoSeleccionado = e.target.value; 
+        
+        let ordenActual = "nom ASC";
+        
+        const desplegableOrdenar = document.querySelector("#ordenar-creadors");
+        
+        if (desplegableOrdenar) {
+            ordenActual = desplegableOrdenar.value;
+        }
+        
+        mostrarCreadores(ordenActual);
+    });
+}
