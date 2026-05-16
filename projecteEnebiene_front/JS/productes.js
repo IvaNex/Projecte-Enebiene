@@ -1,9 +1,8 @@
 
 async function mostrarProductes(orden = "nom ASC") {
 
-    const idCreador=localStorage.getItem("creador");
-
-
+    const params = new URLSearchParams(window.location.search);
+    const idCreador = params.get('creador');
 
     let sql = "SELECT v.id, v.titulo, v.descripcion, v.precio, v.puntuacion, v.fecha_lanzamiento, v.pegi, v.es_multijugador, v.id_genero, v.id_creador From videojuegos v LEFT JOIN creadores c ON v.id_creador = c.id"
 

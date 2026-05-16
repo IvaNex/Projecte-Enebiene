@@ -43,9 +43,9 @@ async function mostrarCreadores(orden = "nom ASC") {
         contenedorCreador.classList.add("contenedorCreador");
 
         contenedorCreador.innerHTML = `
-            <a>
-            <img src="imagenes/imagen-creadores.png" alt="Logo de ${creador.nombre}" class="img-creador" onclick="mostrarCreador(${creador.id})">
-            </a>
+            <a href="productes.html?creador=${creador.id}">
+            <img src="imagenes/imagen-creadores.png" alt="Logo de ${creador.nombre}" class="img-creador">
+        </a>
             <div class="info">
                 <h2 class="nombre-creador" >${creador.nombre}</h2>
                 <p><strong>País:</strong> ${creador.pais}</p>
