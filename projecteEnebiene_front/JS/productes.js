@@ -63,3 +63,18 @@ if (selector) {
         mostrarProductes(valorElegido);
     });
 }
+
+
+const btnVista = document.getElementById('btn-vista');
+const listProductos = document.getElementById('contenedor-juegos');
+ if (btnVista && listProductos) {
+    btnVista.addEventListener('click', () => {
+        listProductos.classList.toggle('llistaProductes');
+
+        if (listProductos.classList.contains('llistaProductes')){
+            btnVista.textContent = 'Canviar a Cuadricula'
+        } else {
+            btnVista.textContent = 'Canviar a Llista'
+        }
+    })
+ }

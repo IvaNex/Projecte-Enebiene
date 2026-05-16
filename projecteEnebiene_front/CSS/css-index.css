@@ -264,3 +264,55 @@ footer {
     object-fit: cover;
     border-radius: 4px;
 }
+
+
+/*Cambio de cuadricula a lista con las clases de grid-productos y llistaProductos*/
+/*Cambio de cuadricula a "Lista" */
+.grid-productos.llistaProductes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/*Las cosas de dentro del jueego que se orienten en horizontal*/
+.grid-productos.llistaProductes .contenedorProducte {
+    display: flex;
+    flex-direction: row;       
+    align-items: center;       
+    width: 100%;                
+    text-align: left;           
+    padding: 20px;
+    box-sizing: border-box;     
+}
+
+/*Imagen en juego*/
+.grid-productos.llistaProductes .contenedorProducte img {
+    width: 250px;               
+    height: auto;               
+    margin-bottom: 0;           
+    margin-right: 30px;         
+}
+
+/* cosas dentro de la caja del juego*/
+.grid-productos.llistaProductes .contenedorProducte > div {
+    display: flex;
+    flex-direction: row;           
+    justify-content: space-between; 
+    align-items: center;            
+    width: 100%;                    
+}
+
+/*Título*/
+.grid-productos.llistaProductes .contenedorProducte > div h2 {
+    margin: 0;
+    text-align: left;
+    width: 40%;                     
+}
+
+/*Precio y Puntuación*/
+.grid-productos.llistaProductes .contenedorProducte > div p {
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;              
+    font-weight: bold;             
+}
